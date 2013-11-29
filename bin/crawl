@@ -1,9 +1,9 @@
 #! /usr/bin/env ruby
 
 require 'bundler'
+require 'logger'
 Bundler.require
 Dotenv.load
-
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 require 'recon'
@@ -13,6 +13,8 @@ crawler_name = ARGV.shift
 file = Dir['./spiders/**/*.rb'].grep(%r{#{crawler_name}}).first
 
 require file
+
+Spidey.logger = Logger.new("log/spidey.log")
 
 crawler_class = file.gsub(/.rb$/, '').split("/").last.camelize.constantize
 
