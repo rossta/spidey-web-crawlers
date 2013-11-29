@@ -18,4 +18,6 @@ Spidey.logger = Logger.new("log/spidey.log")
 
 crawler_class = file.gsub(/.rb$/, '').split("/").last.camelize.constantize
 
+Process.daemon(true)
+
 crawler_class.crawl
