@@ -1,0 +1,10 @@
+Linode: Chef bootstrap gist
+https://gist.github.com/codemis/6041247
+
+
+# Set in .env
+# MONGODB_URI=mongodb://[username:password@]host1[:port1]/database
+
+MONGODB_URI=mongodb://deploy:qui-wru-an-ed-vi@paulo.mongohq.com:10065/bravo_crawler_development
+
+MONGODB_URI=mongodb://localhost:27017/bravo_crawler_development

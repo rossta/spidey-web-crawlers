@@ -1,0 +1,16 @@
+#! /usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
+require 'crawl'
+
+crawlers = %w[trifind runningusa]
+
+crawler = ARGV.shift
+
+if !crawlers.include?(crawler)
+  puts "Crawler not found: #{crawler}"
+  puts %Q[run "crawl #{crawlers.join('|')}"]
+  exit 1
+end
+
+"Crawl::#{crawler.titleize}Crawler".constantize.crawl
