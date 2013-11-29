@@ -1,5 +1,5 @@
 class MobileRunningInTheUsaCom < Recon::Crawler
-  self.max_urls = 100
+  self.max_urls = 50_000
   self.request_interval = 5
 
   include Recon::MongoStore
