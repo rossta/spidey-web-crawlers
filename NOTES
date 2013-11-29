@@ -8,3 +8,15 @@ https://gist.github.com/codemis/6041247
 MONGODB_URI=mongodb://deploy:qui-wru-an-ed-vi@paulo.mongohq.com:10065/bravo_crawler_development
 
 MONGODB_URI=mongodb://localhost:27017/bravo_crawler_development
+
+
+Digital Ocean Setup
+
+# add ssh access for root
+
+# add deploy user with sudo privileges and ssh access
+
+$ cat ~/.ssh/id_rsa.pub | ssh deploy@162.243.119.146 "cat >> ~/.ssh/authorized_keys"
+
+# ruby install script
+# sudo apt-get install git-core
