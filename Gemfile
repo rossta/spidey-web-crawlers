@@ -5,5 +5,7 @@ gem 'spidey-mongo', git: 'git@github.com:joeyAghion/spidey-mongo.git'
 gem 'activesupport'
 gem 'dotenv'
 
-gem 'pry'
-gem 'pry-debugger'
+group :development do
+  gem 'pry'
+  gem 'pry-debugger'
+end
