@@ -29,7 +29,7 @@ class MobileRunningInTheUsaCom < Recon::Crawler
 
   def process_race_detail(page, data = {})
     data = data.merge \
-      title: StripString(page.search(".ViewTitle")),
+      title: StripString(page.search(".ViewTitle").text),
       race_date: StripString(page.search("td.ViewLabel:contains('Race Date') + td").text),
       city_state: StripString(page.search("td.ViewLabel:contains('City') + td").text),
       events: StripString(page.search("td.ViewLabel:contains('Events') + td").text),
