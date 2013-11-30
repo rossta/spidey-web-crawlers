@@ -64,6 +64,7 @@ GEM
     pry-debugger (0.2.2)
       debugger (~> 1.3)
       pry (~> 0.9.10)
+    rack (1.5.2)
     slop (3.4.6)
     unf (0.1.1)
       unf_ext
@@ -78,5 +79,6 @@ DEPENDENCIES
   dotenv
   pry
   pry-debugger
+  rack
   spidey!
   spidey-mongo!

@@ -2,6 +2,7 @@
 
 require 'bundler'
 require 'logger'
+
 Bundler.require
 Dotenv.load
 

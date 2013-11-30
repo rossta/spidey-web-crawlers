@@ -28,8 +28,12 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   end
 
   def process_race_detail(page, data = {})
+    title = StripString(page.search(".ViewTitle").text)
+    uid   = parse_page_query(page)['RaceID'] || title
+
     data = data.merge \
-      title: StripString(page.search(".ViewTitle").text),
+      race_id: uid,
+      title: title,
       race_date: StripString(page.search("td.ViewLabel:contains('Race Date') + td").text),
       city_state: StripString(page.search("td.ViewLabel:contains('City') + td").text),
       events: StripString(page.search("td.ViewLabel:contains('Events') + td").text),
@@ -44,6 +48,10 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   end
 
   private
+
+  def result_key(data)
+    data[:race_id]
+  end
 
   def resolve_redirect_links(anchors)
     anchors = Array(anchors).compact
@@ -60,5 +68,9 @@ class MobileRunningInTheUsaCom < Recon::Crawler
 
   def include_results?
     false
+  end
+
+  def parse_page_query(page)
+    Rack::Utils.parse_nested_query(page.uri.query) || {}
   end
 end
