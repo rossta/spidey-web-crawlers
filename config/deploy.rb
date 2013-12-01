@@ -65,7 +65,7 @@ task :deploy => :environment do
     # invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "sudo god restart"
+      queue "god restart crawl"
     end
   end
 end
