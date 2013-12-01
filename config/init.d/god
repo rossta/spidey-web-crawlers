@@ -17,7 +17,7 @@ SCRIPTNAME=/etc/init.d/god
 DEBUG_OPTIONS=""
 
 # Gracefully exit if 'god' gem is not available.
-test -x $DAEMON || exit 0
+# test -x $DAEMON || exit 0
 
 RETVAL=0
 
