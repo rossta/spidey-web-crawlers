@@ -8,7 +8,7 @@ path = File.expand_path(File.dirname(__FILE__))
 Bundler.require
 Dotenv.load(path + '/../.env')
 
-$LOAD_PATH.unshift  path + '/../lib'
+$LOAD_PATH.unshift path + '/../lib'
 require 'recon'
 
 crawler_name = ARGV.shift
