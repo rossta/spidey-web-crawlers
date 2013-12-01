@@ -21,3 +21,4 @@ $ cat ~/.ssh/id_rsa.pub | ssh deploy@162.243.119.146 "cat >> ~/.ssh/authorized_k
 # ruby install script
 # sudo apt-get install git-core
 
+http://www.srcnix.com/tutorials/ruby/install-god-background-process-monitoring-on-ubuntu-12-04/

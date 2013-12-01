@@ -73,4 +73,5 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   def parse_page_query(page)
     Rack::Utils.parse_nested_query(page.uri.query) || {}
   end
+
 end
