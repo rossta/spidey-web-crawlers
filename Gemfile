@@ -5,7 +5,7 @@ gem 'spidey-mongo', git: 'git@github.com:joeyAghion/spidey-mongo.git'
 gem 'activesupport'
 gem 'dotenv'
 gem 'rack', require: 'rack/utils'
-gem 'god'
+# gem 'god'
 
 group :development do
   gem 'pry'
