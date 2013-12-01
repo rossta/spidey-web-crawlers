@@ -6,7 +6,7 @@ require 'logger'
 path = File.expand_path(File.dirname(__FILE__))
 
 Bundler.require
-Dotenv.load
+Dotenv.load(path + '../.env')
 
 $LOAD_PATH.unshift  path + '/../lib'
 require 'recon'

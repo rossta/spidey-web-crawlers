@@ -49,7 +49,7 @@ task :setup => :environment do
   # queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   # queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
-  queue  %[sudo cp "#{deploy_to}/current/config/crawl.god" "#{deploy_to}/shared/current/crawl.god"]
+  queue  %[sudo cp "#{deploy_to}/current/config/crawl.god" "#{deploy_to}/shared/config/crawl.god"]
   queue  %[sudo cp "#{deploy_to}/shared/config/crawl.god" /etc/init.d/crawl.god]
 end
 
