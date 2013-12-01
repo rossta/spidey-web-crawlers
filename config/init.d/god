@@ -7,8 +7,8 @@
 #              framework written in Ruby.
 #
 
-CONF_FILE=/opt/god/master.conf
-DAEMON=/home/ben/.rvm/bin/boot_god
+CONF_FILE=/etc/god.conf
+DAEMON=god
 PIDFILE=/var/run/god.pid
 LOGFILE=/var/log/god.log
 SCRIPTNAME=/etc/init.d/god
