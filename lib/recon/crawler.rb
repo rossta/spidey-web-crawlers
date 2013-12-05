@@ -13,12 +13,18 @@ module Recon
     end
 
     def self.build(opts = {})
-      new(opts)
+      new(default_options.merge(opts))
+    end
+
+    def self.default_options
+      {
+        request_interval: request_interval,
+        verbose: true
+      }
     end
 
     def self.crawl(opts = {})
-      spider = build(opts)
-      spider.crawl max_urls: max_urls
+      build(opts).crawl(max_urls: max_urls)
     end
 
     def log(*args)
