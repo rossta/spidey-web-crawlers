@@ -47,11 +47,11 @@ class MobileRunningInTheUsaCom < Recon::Crawler
     record data
   end
 
-  private
-
   def result_key(data)
     data[:race_id]
   end
+
+  private
 
   def resolve_redirect_links(anchors)
     anchors = Array(anchors).compact
