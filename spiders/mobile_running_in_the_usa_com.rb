@@ -57,8 +57,12 @@ class MobileRunningInTheUsaCom < Recon::Crawler
     anchors = Array(anchors).compact
     return [] if anchors.empty?
     anchors.map do |a|
-      page = agent.get(a['href'])
-      page.instance_variable_get("@uri").to_s
+      begin
+        page = agent.get(a['href'])
+        page.instance_variable_get("@uri").to_s
+      rescue Mechanize::Error
+        ''
+      end
     end.reject(&:blank?)
   end
 
