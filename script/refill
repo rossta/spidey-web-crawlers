@@ -1,0 +1,18 @@
+#! /usr/bin/env ruby
+
+require 'bundler'
+require 'logger'
+
+path = File.expand_path(File.dirname(__FILE__))
+
+ENV['BUNDLE_GEMFILE'] = path + '/../Gemfile'
+
+Bundler.require
+Dotenv.load(path + '/../.env')
+
+$LOAD_PATH.unshift path + '/../lib'
+require 'recon'
+
+Spidey.logger = Logger.new("#{path}/../log/spidey.log")
+
+Recon::Refill.new(:mobile_running_in_the_usa_com).refill_urls

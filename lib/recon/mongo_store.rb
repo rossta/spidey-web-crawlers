@@ -11,7 +11,7 @@ module Recon
 
     module ClassMethods
 
-      def build(opts)
+      def build(opts = {})
         new(default_options.merge(opts))
       end
 

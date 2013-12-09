@@ -7,4 +7,5 @@ require 'active_support/core_ext/class'
 module Recon
   autoload :Crawler, 'recon/crawler'
   autoload :MongoStore, 'recon/mongo_store'
+  autoload :Refill, 'recon/refill'
 end
