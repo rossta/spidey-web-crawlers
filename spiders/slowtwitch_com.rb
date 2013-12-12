@@ -10,14 +10,20 @@ class SlowtwitchCom < Recon::Crawler
     log "process_state_index: #{page.title}, #{page.uri}"
     links = page.search('.statenav a').map { |a| a['href'] }
 
-    handle resolve_url(links.first, page), :process_race_index
+    # link = links.first
+    links.each do |link|
+      handle resolve_url(link, page), :process_race_index
+    end
   end
 
   def process_race_index(page, data = {})
     log "process_race_index: #{page.title}, #{page.uri}"
     links = page.search("#content a.sub-hdr").map { |a| a['href'] }
 
-    handle resolve_url(links.first, page), :process_race_detail
+    # link = links.first
+    links.each do |link|
+      handle resolve_url(link, page), :process_race_detail
+    end
   end
 
   def process_race_detail(page, data = {})
