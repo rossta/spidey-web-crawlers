@@ -21,7 +21,7 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   end
 
   def process_race_index(page, data = {})
-    page.search(".PageLink a").each do |a|
+    page.search("#ctl00_ContentPlaceHolder1_panList .PageLink a").each do |a|
       log "process_race_index: resolve #{a['href']}"
       handle resolve_url(a['href'], page), :process_race_detail
     end
