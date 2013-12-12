@@ -15,8 +15,9 @@ Dotenv.load(path + '/../.env')
 $LOAD_PATH.unshift path + '/../lib'
 require 'recon'
 
-Spidey.logger = Logger.new("#{path}/../log/spidey.log") if debug
+Spidey.logger = Logger.new("#{path}/../log/spidey.log") unless debug
 
 require path + '/../spiders/' + spider
 spider_class = spider.camelize.constantize
+
 spider_class.crawl

@@ -27,6 +27,7 @@ class SlowtwitchCom < Recon::Crawler
   end
 
   def process_race_detail(page, data = {})
+    log "process_race_detail: #{page.title}, #{page.uri}"
     title = StripString(page.search("#content h2").text)
     uid   = parse_page_query(page)['uid'] || title
 
