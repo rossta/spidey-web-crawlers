@@ -28,8 +28,9 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   end
 
   def process_race_detail(page, data = {})
+    uid   = parse_page_query(page)['RaceID']
+    return unless uid.present?
     title = StripString(page.search(".ViewTitle").text)
-    uid   = parse_page_query(page)['RaceID'] || title
 
     data = data.merge \
       race_id: uid,
