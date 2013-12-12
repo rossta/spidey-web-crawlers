@@ -1,5 +1,5 @@
 class SlowtwitchCom < Recon::Crawler
-  self.max_urls = 1000
+  self.max_urls = 10_000
   self.request_interval = 1
 
   include Recon::MongoStore
