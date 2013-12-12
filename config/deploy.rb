@@ -49,7 +49,7 @@ task :setup => :environment do
   # queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   # queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
-  queue  %[god -c "#{deploy_to}/shared/config/crawl.god]
+  queue  %[god load "#{deploy_to}/#{current}/config/crawl.god]
 end
 
 desc "Deploys the current version to the server."
@@ -64,7 +64,7 @@ task :deploy => :environment do
     # invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "god restart crawl"
+      queue "god restart"
     end
   end
 end
