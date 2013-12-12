@@ -9,19 +9,19 @@ class MobileRunningInTheUsaCom < Recon::Crawler
   def process_state_index(page, default_data = {})
     page.search(".PageLink a").each do |a|
       log "process_state_index: resolve #{a['href']}"
-      handle resolve_url(a['href'], page), :process_month_index
+      handle resolve_url(a['href'], page), :process_secondary_index
     end
   end
 
-  def process_month_index(page, data = {})
-    page.search("#ctl00_ContentPlaceHolder1_panMonth .PageLink a").each do |a|
+  def process_secondary_index(page, data = {})
+    page.search(".PageLink a").each do |a|
       log "process_month_index: resolve #{a['href']}"
       handle resolve_url(a['href'], page), :process_race_index
     end
   end
 
   def process_race_index(page, data = {})
-    page.search("#ctl00_ContentPlaceHolder1_panList .PageLink a").each do |a|
+    page.search(".PageLink a").each do |a|
       log "process_race_index: resolve #{a['href']}"
       handle resolve_url(a['href'], page), :process_race_detail
     end

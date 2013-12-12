@@ -13,7 +13,7 @@ Dotenv.load(path + '/../.env')
 $LOAD_PATH.unshift path + '/../lib'
 require 'recon'
 
-Spidey.logger = Logger.new("#{path}/../log/spidey.log")
+Spidey.logger = Logger.new("#{path}/../log/spidey.log") unless ARGV[0] == 'debug'
 
 require path + '/../spiders/mobile_running_in_the_usa_com'
 MobileRunningInTheUsaCom.crawl
