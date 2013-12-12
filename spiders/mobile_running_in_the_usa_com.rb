@@ -66,16 +66,8 @@ class MobileRunningInTheUsaCom < Recon::Crawler
     end.reject(&:blank?)
   end
 
-  def StripString(string)
-    string.to_s.gsub("&nbsp", ' ').gsub(/(\s|\t|\r|\n)+/, " ").strip
-  end
-
   def include_results?
     false
-  end
-
-  def parse_page_query(page)
-    Rack::Utils.parse_nested_query(page.uri.query) || {}
   end
 
 end

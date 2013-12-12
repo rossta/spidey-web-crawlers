@@ -31,5 +31,13 @@ module Recon
       Spidey.logger.info(*args)
     end
 
+    def parse_page_query(page)
+      Rack::Utils.parse_nested_query(page.uri.query) || {}
+    end
+
+    def StripString(string)
+      string.to_s.gsub("&nbsp", ' ').gsub(/(\s|\t|\r|\n)+/, " ").strip
+    end
   end
 end
+
