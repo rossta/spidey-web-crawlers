@@ -4,6 +4,8 @@ require 'bundler'
 require 'logger'
 
 path = File.expand_path(File.dirname(__FILE__))
+spider = ARGV.shift
+debug  = ARGV.shift == 'debug'
 
 ENV['BUNDLE_GEMFILE'] = path + '/../Gemfile'
 
@@ -13,7 +15,8 @@ Dotenv.load(path + '/../.env')
 $LOAD_PATH.unshift path + '/../lib'
 require 'recon'
 
-Spidey.logger = Logger.new("#{path}/../log/spidey.log") unless ARGV[0] == 'debug'
+Spidey.logger = Logger.new("#{path}/../log/spidey.log") if debug
 
-require path + '/../spiders/mobile_running_in_the_usa_com'
-MobileRunningInTheUsaCom.crawl
+require path + '/../spiders/' + spider
+spider_class = spider.camelize.constantize
+spider_class.crawl
