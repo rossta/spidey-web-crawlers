@@ -54,13 +54,13 @@ class SlowtwitchCom < Recon::Crawler
   end
 
   def parse_text_after_node(page, contains)
-    match = page.search("#content .content div:contains('#{contains}')").to_html.match(regex_text_after_node(contains))
+    match = page.search("#content .content div:contains('#{contains}')").to_html(encoding:'UTF-8').match(regex_text_after_node(contains))
     StripString(match && match[1] || '')
   end
 
   def parse_link_after_node(page, contains)
     text = parse_text_after_node(page, contains)
-    Nokogiri.parse(text).search("a").map { |a| a['href'] }
+    Nokogiri.parse(text).search("a").map { |a| a['href'] }.to_s.encode('utf-8')
   end
 
   def regex_text_after_node(contains)
